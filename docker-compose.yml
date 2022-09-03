@@ -1,0 +1,53 @@
+version: "3.1"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: backend.dockerfile
+    container_name: rwservice-backend
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8000:8000"
+    working_dir: /var/www/backend
+    volumes:
+      - ./backend:/var/www/backend
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    depends_on:
+      - db
+    networks:
+      - rw-network
+
+  db:
+    image: postgres:13-alpine
+    container_name: rwservice-db
+    environment:
+      POSTGRES_PASSWORD: rw_service
+      POSTGRES_USER: rw_service
+      POSTGRES_DB: rw_service
+    ports:
+      - "5413:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - rw-network
+
+  testdb:
+    image: postgres:13-alpine
+    container_name: rwservice-testdb
+    tmpfs: /var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: rw_service
+      POSTGRES_PASSWORD: rw_service
+      POSTGRES_DB: rw_service_test
+    ports:
+      - "45413:5432"
+    networks:
+      - rw-network
+
+networks:
+  rw-network:
+
+volumes:
+  db-data:
