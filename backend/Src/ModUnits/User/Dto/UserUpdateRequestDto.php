@@ -6,7 +6,7 @@ use OpenApi\Attributes as OA;
 use Src\Bases\BaseDto;
 
 #[OA\Schema]
-class UpdateRequestDto extends BaseDto
+class UserUpdateRequestDto extends BaseDto
 {
     #[OA\Property]
     public ?string $email;

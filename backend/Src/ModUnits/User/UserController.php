@@ -7,7 +7,7 @@ use Spatie\RouteAttributes\Attributes\Middleware;
 use Spatie\RouteAttributes\Attributes\Put;
 use Src\Bases\BaseController;
 use Src\ModUnits\User\Dto\UserResponseDto;
-use Src\ModUnits\User\Requests\UpdateRequest;
+use Src\ModUnits\User\Requests\UserUpdateRequest;
 use Src\Shared\Dto\Responses\WrapResponseDto;
 
 #[Middleware('auth:api')]
@@ -23,7 +23,7 @@ class UserController extends BaseController
     }
 
     #[Put('user')]
-    public function update(UpdateRequest $request, UserService $service)
+    public function update(UserUpdateRequest $request, UserService $service)
     {
         $user = $service->update($request->data());
         $user = UserResponseDto::fromModel($user);

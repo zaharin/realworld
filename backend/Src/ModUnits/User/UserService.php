@@ -4,7 +4,7 @@ namespace Src\ModUnits\User;
 
 use App\Models\User;
 use Src\Bases\BaseService;
-use Src\ModUnits\User\Dto\UpdateRequestDto;
+use Src\ModUnits\User\Dto\UserUpdateRequestDto;
 
 class UserService extends BaseService
 {
@@ -25,7 +25,7 @@ class UserService extends BaseService
         return User::where('username', $username)->firstOrFail();
     }
 
-    public function update(UpdateRequestDto $data): User
+    public function update(UserUpdateRequestDto $data): User
     {
         $model = self::getCurrentUser();
         $model->update($data->withoutNullable());

@@ -1,15 +1,15 @@
 <?php
 
-namespace Src\ModUnits\User\Requests;
+namespace Src\ModUnits\Article\Requests;
 
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use Spatie\DataTransferObject\Exceptions\UnknownProperties;
 use Src\Bases\BaseRequest;
-use Src\ModUnits\User\Dto\UpdateRequestDto;
+use Src\ModUnits\Article\Dto\ArticleUpdateRequestDto;
 use Src\ModUnits\User\UserService;
 
-class UpdateRequest extends BaseRequest
+class ArticleCreateRequest extends BaseRequest
 {
     public function rules(): array
     {
@@ -37,9 +37,9 @@ class UpdateRequest extends BaseRequest
     /**
      * @throws UnknownProperties
      */
-    public function data(): UpdateRequestDto
+    public function data(): ArticleUpdateRequestDto
     {
-        return new UpdateRequestDto([
+        return new ArticleUpdateRequestDto([
             'email' => $this->input('user.email'),
             'username' => $this->input('user.username'),
             'password' => $this->input('user.password'),
