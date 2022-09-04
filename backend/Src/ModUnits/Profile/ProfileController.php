@@ -8,7 +8,7 @@ use Spatie\RouteAttributes\Attributes\Get;
 use Spatie\RouteAttributes\Attributes\Post;
 use Spatie\RouteAttributes\Attributes\Prefix;
 use Src\Bases\BaseController;
-use Src\ModUnits\User\Dto\ProfileResponseDto;
+use Src\ModUnits\Profile\Dto\ProfileResponseDto;
 use Src\ModUnits\User\UserService;
 use Src\Shared\Dto\Responses\WrapResponseDto;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\ModUnits\User\Dto;
+namespace Src\ModUnits\Profile\Dto;
 
 use App\Models\User;
 use OpenApi\Attributes as OA;

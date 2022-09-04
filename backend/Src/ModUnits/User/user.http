@@ -32,7 +32,21 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 
 ### Get Current User
+GET http://127.0.0.1:8000/api/user
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Update User
 PUT http://127.0.0.1:8000/api/user
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{auth_token}}
+
+{
+  "user": {
+    "email": "test1@test.com",
+    "bio": "I like to skateboard test",
+    "image": "https://i.stack.imgur.com/xHWG8.jpg"
+  }
+}

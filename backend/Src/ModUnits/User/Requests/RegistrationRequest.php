@@ -12,7 +12,7 @@ class RegistrationRequest extends BaseRequest
     {
         return [
             'user.email' => 'required|email|unique:users,email',
-            'user.username' => 'required|string',
+            'user.username' => 'required|string|unique:users,username',
             'user.password' => 'required|string',
         ];
     }

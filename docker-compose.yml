@@ -6,6 +6,8 @@ services:
       context: ./backend
       dockerfile: backend.dockerfile
     container_name: rwservice-backend
+    environment:
+      PHP_IDE_CONFIG: serverName=rw-service
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
