@@ -7,13 +7,13 @@ use Src\Bases\BaseService;
 
 class UserService extends BaseService
 {
-    public function getCurrentUser()
+    public static function getCurrentUser(): User
     {
-        return auth()->userOrFail();
+        return auth('api')->userOrFail();
     }
 
-    public function getUserByUsername(string $username): ?User
+    public function getUserByUsername(string $username): User
     {
-        return User::where('username', $username)->first();
+        return User::where('username', $username)->firstOrFail();
     }
 }

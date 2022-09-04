@@ -12,27 +12,20 @@ Accept: application/json
 
 > {% client.global.set("auth_token", response.body.user.token); %}
 
-### Registration
-POST http://127.0.0.1:8000/api/users
-Content-Type: application/json
-Accept: application/json
-
-{
-  "user": {
-    "username": "test2",
-    "email": "test2@test.com",
-    "password": "test2"
-  }
-}
-
-### Logout
-POST http://127.0.0.1:8000/api/users/logout
+### Get Profile
+GET http://127.0.0.1:8000/api/profiles/test2
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{auth_token}}
 
-### Get Current User
-PUT http://127.0.0.1:8000/api/user
+### Follow user
+POST http://127.0.0.1:8000/api/profiles/test2/follow
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{auth_token}}
+
+### Unfollow user
+DELETE http://127.0.0.1:8000/api/profiles/test2/unfollow
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{auth_token}}
